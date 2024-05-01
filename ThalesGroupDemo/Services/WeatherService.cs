@@ -9,6 +9,8 @@ public class WeatherService : IWeatherService
 {
     private readonly IWeatherApiConfiguration _weatherApiConfiguration;
     private readonly HttpClient _httpClient;
+    private string projectDirectory = Directory.GetCurrentDirectory();
+    private string folderName = "weatherdata";
 
     public WeatherService(IWeatherApiConfiguration weatherApiConfiguration, HttpClient httpClient)
     {
@@ -19,6 +21,7 @@ public class WeatherService : IWeatherService
 
     public async Task FetchWeatherData()
     {
+        Console.WriteLine("Calling Weather API at: " + DateTime.Now);
         var countries = _weatherApiConfiguration.GetCountries();
         var apiKey = _weatherApiConfiguration.GetApiKey();
 
@@ -41,6 +44,10 @@ public class WeatherService : IWeatherService
         });
 
         await Task.WhenAll(tasks);
+        Console.WriteLine("Json files Created successfully at " + DateTime.Now);
+        Console.WriteLine("For Generated file please check this path for \\bin\\Debug\\net8.0\\weatherdata folder for Country wise json files");
+        Console.WriteLine("Press any key to exit...");
+
     }
 
     private List<string> GetCountriesFromConfiguration(IConfiguration configuration)
@@ -65,11 +72,15 @@ public class WeatherService : IWeatherService
 
     private string GetFilePath(string country)
     {
-        return Path.Combine("ForcastOutput", $"{country}.json");
+        return Path.Combine(projectDirectory, folderName, $"{country}.json");
     }
 
     private Task WriteWeatherDataToFile(string filePath, dynamic weatherData)
     {
+        if (!Directory.Exists(Path.Combine(projectDirectory, folderName)))
+        {
+            Directory.CreateDirectory(Path.Combine(projectDirectory, folderName));
+        }
         return File.WriteAllTextAsync(filePath, JsonConvert.SerializeObject(weatherData, Formatting.Indented));
     }
 }
