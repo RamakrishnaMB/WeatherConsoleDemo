@@ -27,6 +27,11 @@ Console.WriteLine("Weather data fetcher is running.");
 var timer = new Timer(async _ => await weatherService.FetchWeatherData(), null, TimeSpan.Zero,
     TimeSpan.FromMinutes(frequencyInMinutes));
 
+if (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") != "true")
+{
+    Console.WriteLine("DOTNET_RUNNING_IN_CONTAINER");
+    Console.ReadKey();
+}
 Console.ReadKey();
 
 // Clean up
