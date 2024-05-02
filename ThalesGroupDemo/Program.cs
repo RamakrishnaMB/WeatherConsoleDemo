@@ -24,15 +24,19 @@ var weatherService = serviceProvider.GetRequiredService<IWeatherService>();
 var frequencyInMinutes = configuration.GetValue<int>("WeatherApi:FrequencyInMinutes");
 Console.WriteLine("Weather data fetcher is running.");
 // Set up the timer to fetch weather data
-var timer = new Timer(async _ => await weatherService.FetchWeatherData(), null, TimeSpan.Zero,
-    TimeSpan.FromMinutes(frequencyInMinutes));
+var timer = new Timer(async _ => await weatherService.FetchWeatherData());
 
-if (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") != "true")
-{
-    Console.WriteLine("DOTNET_RUNNING_IN_CONTAINER");
-    Console.ReadKey();
-}
-Console.ReadKey();
-// Clean up
+ManualResetEvent quitEvent = new ManualResetEvent(false);
+
+Console.CancelKeyPress += (sender, eArgs) => {
+    quitEvent.Set();
+    eArgs.Cancel = true;
+};
+
+timer?.Change(TimeSpan.Zero, TimeSpan.FromMinutes(frequencyInMinutes));
+
+// Blocks the main thread until the quit event is triggered
+quitEvent.WaitOne();
+
+// Properly dispose of the timer when exiting
 timer?.Dispose();
-

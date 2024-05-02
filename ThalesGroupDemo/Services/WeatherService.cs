@@ -29,7 +29,7 @@ public class WeatherService : IWeatherService
             GenerateWeatherData(countries, apiKey, tasks);
             await Task.WhenAll(tasks);
         
-            Console.WriteLine("Press any key to exit...");
+            Console.WriteLine("Close window to stop the program.");
         }
         catch (Exception ex)
         {
