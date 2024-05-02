@@ -30,15 +30,15 @@ namespace WeatherServiceConsoleTests
 
             // Assert
             mockHttpMessageHandler.Protected().Verify(
-                "SendAsync", Times.Exactly(2), ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>());
+                "SendAsync", Times.Exactly(4), ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>());
         }
 
         [Fact]
         public async Task FetchWeatherData_WritesWeatherDataToFile()
         {
             // Arrange
-            var forecastOutputDirectory = "ForcastOutput";
-            Directory.CreateDirectory(forecastOutputDirectory); // Create the directory
+            var forecastHistoryDirectory = "weatherhistorydata";
+            Directory.CreateDirectory(forecastHistoryDirectory); // Create the directory
 
             var weatherApiConfiguration = new TestWeatherApiConfiguration();
 
@@ -58,13 +58,13 @@ namespace WeatherServiceConsoleTests
             await weatherService.FetchWeatherData();
 
             // Assert
-            Console.WriteLine($"Checking directory: {forecastOutputDirectory}");
-            var files = Directory.GetFiles(forecastOutputDirectory);
+            Console.WriteLine($"Checking directory: {forecastHistoryDirectory}");
+            var files = Directory.GetFiles(forecastHistoryDirectory);
             foreach (var file in files)
             {
                 Console.WriteLine($"Found file: {file}");
             }
-            Assert.True(files.Length > 0, $"No files found in directory '{forecastOutputDirectory}'.");
+            Assert.True(files.Length > 0, $"No files found in directory '{forecastHistoryDirectory}'.");
         }
     }
 }

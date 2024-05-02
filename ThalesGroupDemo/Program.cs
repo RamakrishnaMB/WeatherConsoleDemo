@@ -33,7 +33,6 @@ if (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") != "true")
     Console.ReadKey();
 }
 Console.ReadKey();
-
 // Clean up
 timer?.Dispose();
 

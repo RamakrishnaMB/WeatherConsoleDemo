@@ -221,20 +221,28 @@ var assemblies = [
   {
     "name": "WeatherServiceDemo",
     "classes": [
-      { "name": "Program", "rp": "WeatherServiceDemo_Program.html", "cl": 0, "ucl": 25, "cal": 25, "tl": 45, "cb": 0, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Program", "rp": "WeatherServiceDemo_Program.html", "cl": 0, "ucl": 24, "cal": 24, "tl": 38, "cb": 0, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "WeatherServiceDemo.Services.WeatherApiConfiguration", "rp": "WeatherServiceDemo_WeatherApiConfiguration.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "WeatherServiceDemo.Services.WeatherService", "rp": "WeatherServiceDemo_WeatherService.html", "cl": 38, "ucl": 6, "cal": 44, "tl": 75, "cb": 6, "tb": 6, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherServiceDemo.Services.WeatherService", "rp": "WeatherServiceDemo_WeatherService.html", "cl": 66, "ucl": 19, "cal": 85, "tl": 121, "cb": 7, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
-var metrics = [{ "name": "Cyclomatic complexity", "abbreviation": "cc", "explanationUrl": "https://en.wikipedia.org/wiki/Cyclomatic_complexity" }, { "name": "NPath complexity", "abbreviation": "npth", "explanationUrl": "https://modess.io/npath-complexity-cyclomatic-complexity-explained" }, { "name": "Sequence coverage", "abbreviation": "seq", "explanationUrl": "https://en.wikipedia.org/wiki/Code_coverage" }, { "name": "Branch coverage", "abbreviation": "bcov", "explanationUrl": "https://en.wikipedia.org/wiki/Code_coverage" }];
+var metrics = [{ "name": "Crap Score", "abbreviation": "crp", "explanationUrl": "https://googletesting.blogspot.de/2011/02/this-code-is-crap.html" }, { "name": "Cyclomatic complexity", "abbreviation": "cc", "explanationUrl": "https://en.wikipedia.org/wiki/Cyclomatic_complexity" }, { "name": "Line coverage", "abbreviation": "cov", "explanationUrl": "https://en.wikipedia.org/wiki/Code_coverage" }, { "name": "Branch coverage", "abbreviation": "bcov", "explanationUrl": "https://en.wikipedia.org/wiki/Code_coverage" }];
 
 var historicCoverageExecutionTimes = [];
 
 var riskHotspotMetrics = [
+      { "name": "Crap Score", "explanationUrl": "https://googletesting.blogspot.de/2011/02/this-code-is-crap.html" },
+      { "name": "Cyclomatic complexity", "explanationUrl": "https://en.wikipedia.org/wiki/Cyclomatic_complexity" },
 ];
 
 var riskHotspots = [
+  {
+    "assembly": "WeatherServiceDemo", "class": "Program", "reportPath": "WeatherServiceDemo_Program.html", "methodName": "<Main>$(System.String[])", "methodShortName": "<Main>$(...)", "fileIndex": 0, "line": 7,
+    "metrics": [
+      { "value": 20, "exceeded": true },
+      { "value": 4, "exceeded": false },
+    ]},
 ];
 
 var branchCoverageAvailable = true;
