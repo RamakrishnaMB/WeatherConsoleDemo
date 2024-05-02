@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
+using System.Diagnostics.CodeAnalysis;
 using WeatherServiceDemo.Interfaces;
 
 namespace WeatherServiceDemo.Services
 {
+    [ExcludeFromCodeCoverage]
     public class WeatherApiConfiguration(IConfiguration configuration) : IWeatherApiConfiguration
     {
         public IEnumerable<string>? GetCountries()
