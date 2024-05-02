@@ -42,11 +42,11 @@ To run the application using Docker, follow these steps:
     Build Docker Image:
     Use the following command to build the Docker image:
 
-docker build . -t weather-app-backend -f Dockerfile-linux
+    docker build . -t weather-app-backend -f Dockerfile-linux
 
-This command will build the Docker image named weather-app-backend using the Dockerfile-linux.
+    This command will build the Docker image named weather-app-backend using the Dockerfile-linux.
 
-Run Docker Image:
-Run this command to execute the image:
+    Run Docker Image:
+    Run this command to execute the image:
 
-docker run weather-app-backend
+    docker run weather-app-backend
