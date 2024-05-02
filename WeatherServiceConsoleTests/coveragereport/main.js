@@ -221,9 +221,8 @@ var assemblies = [
   {
     "name": "WeatherServiceDemo",
     "classes": [
-      { "name": "Program", "rp": "WeatherServiceDemo_Program.html", "cl": 0, "ucl": 24, "cal": 24, "tl": 38, "cb": 0, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "WeatherServiceDemo.Services.WeatherApiConfiguration", "rp": "WeatherServiceDemo_WeatherApiConfiguration.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "WeatherServiceDemo.Services.WeatherService", "rp": "WeatherServiceDemo_WeatherService.html", "cl": 66, "ucl": 19, "cal": 85, "tl": 121, "cb": 7, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Program", "rp": "WeatherServiceDemo_Program.html", "cl": 0, "ucl": 26, "cal": 26, "tl": 61, "cb": 0, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherServiceDemo.Services.WeatherService", "rp": "WeatherServiceDemo_WeatherService.html", "cl": 71, "ucl": 19, "cal": 90, "tl": 137, "cb": 7, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
