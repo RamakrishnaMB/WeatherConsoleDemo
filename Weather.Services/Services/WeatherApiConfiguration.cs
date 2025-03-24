@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.Diagnostics.CodeAnalysis;
-using WeatherServiceDemo.Interfaces;
+﻿using System.Diagnostics.CodeAnalysis;
+using Weather.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
 
-namespace WeatherServiceDemo.Services
+namespace Weather.Services.Services
 {
     [ExcludeFromCodeCoverage]
     public class WeatherApiConfiguration(IConfiguration configuration) : IWeatherApiConfiguration

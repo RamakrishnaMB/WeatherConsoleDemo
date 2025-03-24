@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WeatherServiceDemo.Interfaces;
-using WeatherServiceDemo.Services;
+using Weather.Services.Interfaces;
+using Weather.Services.Services;
+
 
 // Initialize the configuration builder
 var builder = new ConfigurationBuilder()

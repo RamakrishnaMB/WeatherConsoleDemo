@@ -1,11 +1,10 @@
-﻿// Import required namespaces
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using WeatherServiceDemo.Interfaces;
+using Weather.Domain.Models;
+using Weather.Services.Interfaces;
 using Formatting = Newtonsoft.Json.Formatting;
 
-// Define the WeatherService class
-namespace WeatherServiceDemo.Services
+namespace Weather.Services.Services
 {
     public class WeatherService : IWeatherService
     {
@@ -132,6 +131,39 @@ namespace WeatherServiceDemo.Services
                 Directory.CreateDirectory(Path.Combine(projectDirectory, folderName));
             }
             return File.WriteAllTextAsync(filePath, JsonConvert.SerializeObject(weatherData, Formatting.Indented));
+        }
+
+        public async Task<List<WeatherData>> FetchWeatherDataForApi()
+        {
+            var countries = _weatherApiConfiguration.GetCountries();
+            var apiKey = _weatherApiConfiguration.GetApiKey();
+            var tasks = new List<Task<string>>();
+            var finalWeatherData = new List<WeatherData>();
+            foreach (var country in countries)
+            {
+                var historyRequestUri = GetRequestUriHistory(country, apiKey);
+                tasks.Add(_httpClient.GetStringAsync(historyRequestUri));
+
+                var forecastRequestUri = GetRequestUriForecast7Days(country, apiKey);
+                tasks.Add(_httpClient.GetStringAsync(forecastRequestUri));
+            }
+            await Task.WhenAll(tasks);
+
+            List<dynamic> results = new List<dynamic>();
+            foreach (var task in tasks)
+            {
+                if (task.IsCompletedSuccessfully)
+                {
+                    results.Add(DeserializeWeatherData(task.Result));
+                }
+            }
+            foreach (var result in results)
+            {
+                var finalWeather = JsonConvert.DeserializeObject<WeatherData>(JsonConvert.SerializeObject(result));
+                finalWeatherData.Add(finalWeather);
+            }
+
+            return finalWeatherData;
         }
     }
 }

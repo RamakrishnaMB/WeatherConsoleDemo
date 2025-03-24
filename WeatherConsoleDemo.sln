@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherServiceDemo", "Thale
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherServiceConsoleTests", "WeatherServiceConsoleTests\WeatherServiceConsoleTests.csproj", "{C4EEB866-9DF7-44ED-BC97-26FF2E92EFB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.Services", "Weather.Services\Weather.Services.csproj", "{F133A38C-11BD-4E32-B922-127346EC5A16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.Domain", "Weather.Domain\Weather.Domain.csproj", "{DA3A978B-0E45-42EA-8ED3-EE9455A64EE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.WebApi", "Weather.WebApi\Weather.WebApi.csproj", "{6206712C-CCFB-413D-994A-6917599CD6B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{C4EEB866-9DF7-44ED-BC97-26FF2E92EFB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4EEB866-9DF7-44ED-BC97-26FF2E92EFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4EEB866-9DF7-44ED-BC97-26FF2E92EFB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F133A38C-11BD-4E32-B922-127346EC5A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F133A38C-11BD-4E32-B922-127346EC5A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F133A38C-11BD-4E32-B922-127346EC5A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F133A38C-11BD-4E32-B922-127346EC5A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA3A978B-0E45-42EA-8ED3-EE9455A64EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA3A978B-0E45-42EA-8ED3-EE9455A64EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA3A978B-0E45-42EA-8ED3-EE9455A64EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA3A978B-0E45-42EA-8ED3-EE9455A64EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6206712C-CCFB-413D-994A-6917599CD6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6206712C-CCFB-413D-994A-6917599CD6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6206712C-CCFB-413D-994A-6917599CD6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6206712C-CCFB-413D-994A-6917599CD6B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
